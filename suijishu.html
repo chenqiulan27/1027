@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>猜数字游戏</title>
+		<script src="./js/vue.js"  charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<img src="./img/ling.jpg" >
+			<h1>猜数字游戏</h1>
+			<!-- 条件判断 -->
+			<!-- 输入1~10之间的数 -->
+			<input v-model="userNum" />
+			<p v-if="userNum==keyNum">{{s}}</p>
+			<p v-if="userNum!=keyNum">{{s2}}</p>
+			<!-- <p>{{s}}</p> -->
+			
+			
+		</div>
+		<script>
+			new Vue({
+				el: "#app",
+				data() {
+					return {
+						s: "恭喜，猜对了",
+						s2: "抱歉，猜错了",
+						keyNum: Math.floor(Math.random()*10),
+						userNum: ""
+					}
+				}
+			}) 
+		</script>
+	</body>
+</html>
