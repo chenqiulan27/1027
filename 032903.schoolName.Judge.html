@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			输入学校名称：
+			<input v-model="dx" />
+			<p v-if="dx=='清华大学'">211大学</p>
+			<p v-if="dx=='北京大学'">211、985大学</p>
+			<p v-if="dx=='南京理工大学'">双一流大学</p>
+			<p v-if="dx=='广西科技师范学院'">普通大学</p>
+		</div>
+		<script type="text/javascript">
+			let v = new Vue({
+				el: "#app",
+				data:{
+					dx: ''
+				}
+			})
+		</script>
+	</body>
+</html>

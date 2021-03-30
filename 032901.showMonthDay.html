@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+		
+			
+
+					
+					
+			
+			
+			
+		</div>
+		<script type="text/javascript">
+			 var month=prompt("请输入月份：","")
+			switch(month){
+			    case "1":case "3":case "5":case "7":case "8":case "10":case "12":
+			    document.write("31天");
+			    break;
+			    case "4":case "6":case "9":case "11":
+			    document.write("30天");
+			    break;
+			    case "2":
+			   if(year %4==0 && year %100!=0 || year %400==0){
+			    document.write("闰年29天");
+			   }else{
+			    document.write("平年28天")
+			   }
+			   }
+			
+			let v = new Vue({
+				el: "#app",
+				data:{
+					month:'',
+					month2:'',
+					month3:'',
+				}
+			})
+		</script>
+	</body>
+</html>
