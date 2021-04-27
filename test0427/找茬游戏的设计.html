@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找茬游戏</title>
+
+    <script src="./vue.js"></script>
+
+    <style>
+        .dian {
+            width: 500px;
+            height: 500px;
+            background-color: antiquewhite;
+        }
+
+        .diankuang {
+            width: 400px;
+            height: 400px;
+            margin: 30px;
+        }
+
+        .br {
+            width: 5px;
+            height: 5px;
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+        已经点击次数:{{number}}
+        还剩余的不同:{{shengyu}}
+        <div id='dianji' class="dian" @click="show">
+            <img src="./找不同.jpg" class="diankuang" />
+        </div>
+
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    number: 0,
+                    is: [
+                        {
+                            x: 148,
+                            y: 64
+                        },
+                        {
+                            x: 69,
+                            y: 189
+                        },
+                        {
+                            x: 202,
+                            y: 189
+                        },
+                        {
+                            x: 130,
+                            y: 418
+                        }
+                    ],
+                    shengyu: 4
+                }
+            },
+            methods: {
+                show() {
+                    // 获取到图片坐标
+                    // console.log(event.clientX + "," + event.clientY);
+
+                    let x = event.clientX
+                    let y = event.clientY
+
+                    console.log(this.is.length);
+
+                    for (var index = 0; index < this.is.length; index++) {
+
+                        // 在+-20px之间对比x轴
+                        if (this.is[index].x + 20 > x && this.is[index].x - 20 < x) {
+
+                            if (this.is[index].y + 20 > y && this.is[index].y - 20 < y) {
+
+                                this.shengyu--
+                                this.is.splice(index, 1)
+                            }
+                        }
+
+                    }
+
+                    this.number++
+
+                    if (this.shengyu === 0) {
+                        alert("通关")
+                    }
+
+
+                }
+            },
+        })
+
+    </script>
+
+
+
+</body>
+
+</html>

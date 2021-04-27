@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>找不同小游戏</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<img src="./img/zhaocha.jpg" @click="playFunction()">
+			<p>您已找出 {{number}} 处不同，一共有5处。</p>
+			<p>得分:{{number}}分</p>
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					number1: 0,
+					number2: 0,
+					number3: 0,
+					number4: 0,
+					number5: 0,
+					number: 0,
+					
+				},
+				methods:{
+					playFunction(){
+						if(event.clientX > 350 && event.clientX < 396 && event.clientY > 437 && event.clientY < 451 
+						|| event.clientX > 351 && event.clientX < 393 && event.clientY > 438 && event.clientY < 450){
+							v.number1++;
+							v.number++;
+							
+							if(v.number1>1){
+								v.number1--;
+								v.number--;
+								alert("您已经找过此处了，再试试其他地方。")
+							}
+						}
+						if(event.clientX > 461 && event.clientX < 474 && event.clientY > 391 && event.clientY < 401
+						|| event.clientX > 463 && event.clientX < 472 && event.clientY > 395 && event.clientY < 398){
+							v.number2++;
+							v.number++;
+							if(v.number2>1){
+								v.number2--;
+								v.number--;
+								alert("您已经找过此处了，再试试其他地方。")
+							}
+						}
+						if(event.clientX > 96 && event.clientX < 104 && event.clientY > 287 && event.clientY < 295
+						|| event.clientX > 99 && event.clientX < 103 && event.clientY > 288 && event.clientY < 292 ){
+							v.number3++;
+							v.number++;
+							if(v.number3>1){
+								v.number3--;
+								v.number--;
+								alert("您已经找过此处了，再试试其他地方。")
+							}
+						}
+						if(event.clientX > 283 && event.clientX < 346 && event.clientY > 94 && event.clientY < 126
+						|| event.clientX > 321 && event.clientX < 332 && event.clientY > 95 && event.clientY < 125){
+							v.number4++;
+							v.number++;
+							if(v.number4>1){
+								v.number4--;
+								v.number--;
+								alert("您已经找过此处了，再试试其他地方。")
+							}
+						}
+						if(event.clientX > 335 && event.clientX < 346 && event.clientY > 253 && event.clientY < 298
+						|| event.clientX > 336 && event.clientX < 344 && event.clientY > 261 && event.clientY < 295){
+							v.number5++;
+							v.number++;
+							if(v.number5>1){
+								v.number5--;
+								v.number--;
+								alert("您已经找过此处了，再试试其他地方。")
+							}
+						}
+						if(v.number==5){
+							alert("恭喜你，游戏通关！");
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
