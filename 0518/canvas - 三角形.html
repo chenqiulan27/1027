@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+		<div id="app">
+			<input type="button" @click="show" name="" id="" value="点击按钮" />
+			<!-- <input type="text" name="" id="banjing" value="" v-model="banjing" /> -->
+		</div>
+		<script type="text/javascript">
+			let v = new Vue ({
+				el: "#app",
+				data:{
+					banjing: ''
+				},
+				methods:{
+					
+					show(){
+						// let canvas = document.getElementById("myCanvas");
+						let canvas = document.getElementById("myCanvas");
+						let context = canvas.getContext("2d");
+						context.beginPath();
+						// context.arc(50,50,this.banjing,0,1*Math.PI);
+						// context.arc(50,50,16,0,2*Math.PI);
+						context.moveTo(10,10);
+						context.lineTo(10,180);
+						context.lineTo(180,180);
+						context.closePath();//闭合路径
+						context.lineWidth=10;//线的边框为10像素
+						let grd = context.createLinearGradient(0,0,0,190); //从上到下
+						grd.addColorStop(0,"#4CE8B2"); //起始颜色
+						grd.addColorStop(1,"#EFD458"); //终点颜色
+						context.strokeStyle = grd;
+						context.stroke();
+						
+						// ctx
+						// ctx
+						// ctx
+						// ctx
+						// ctx
+						// //ctx.strokeStyle='#00ff00';
+						
+						// ctx.stroke();//绘制定义的图形
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
